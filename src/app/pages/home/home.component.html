@@ -1,0 +1,33 @@
+<div class="w-full flex flex-col items-start justify-start">
+  <!-- Banner -->
+  <div class="bg-orange-400 w-full h-40"></div>
+  <!-- Filters  -->
+  <div class="w-full h-20">
+    <button mat-button [matMenuTriggerFor]="categoryMenu">Category</button>
+    <mat-menu #categoryMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="belowMenu">
+      Sort by
+      <mat-icon
+        aria-hidden="false"
+        aria-label="Example home icon"
+        fontIcon="expand_more"
+      ></mat-icon>
+    </button>
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+  <!-- Products  -->
+  <div class="w-full">
+    <h1>Category For You!</h1>
+    <mat-grid-list cols="4" rowHeight="500px" gutterSize="2rem">
+      <mat-grid-tile class="rounded-xl" *ngFor="let product of products">
+        <app-product [product]="product" />
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+</div>
