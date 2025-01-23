@@ -29,7 +29,7 @@ export class HomeComponent {
    */
   ngOnInit() {
     this.productsService
-      .getProducts('https://fakestoreapi.com/products', { limit: 5 })
+      .getProducts('https://fakestoreapi.com/products', { limit: 30 })
       .subscribe((products: Product[]) => {
         this.products = products;
       });
