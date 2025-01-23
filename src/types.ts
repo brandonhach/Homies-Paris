@@ -30,7 +30,7 @@ export interface Options {
 export interface Product {
   id: number;
   title: string;
-  price: string;
+  price: number;
   category: string;
   description: string;
   image: string;
@@ -47,4 +47,14 @@ export interface PaginationParams {
     | boolean
     | ReadonlyArray<string | number | boolean>;
   limit: number;
+}
+
+export interface CartItem {
+  id: number;
+  product: Product;
+  quantity: number;
+}
+
+export interface Cart {
+  items: CartItem[];
 }
