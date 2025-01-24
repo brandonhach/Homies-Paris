@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { NgIcon, provideIcons } from '@ng-icons/core';
+import { lucideShoppingCart, lucideUser, lucideGithub } from '@ng-icons/lucide';
 
 @Component({
   selector: 'app-navbar',
-  imports: [MatToolbarModule, MatButtonModule, MatIconModule],
+  imports: [NgIcon],
   templateUrl: './navbar.component.html',
+  viewProviders: [
+    provideIcons({ lucideShoppingCart, lucideUser, lucideGithub }),
+  ],
 })
 export class NavbarComponent {}
