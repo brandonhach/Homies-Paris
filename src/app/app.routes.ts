@@ -3,7 +3,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
 
 export const routes: Routes = [
-  { path: 'home', component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: 'cart', component: CartComponent },
   { path: '', redirectTo: '', pathMatch: 'full' },
 ];
