@@ -1,20 +1,10 @@
 import { Component } from '@angular/core';
 import { Cart, CartItem } from '../../../types';
-import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
-import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-cart',
-  imports: [
-    MatCardModule,
-    MatButtonModule,
-    MatTableModule,
-    CommonModule,
-    MatIconModule,
-  ],
+  imports: [CommonModule],
   templateUrl: './cart.component.html',
 })
 export class CartComponent {
