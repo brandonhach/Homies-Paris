@@ -8,7 +8,7 @@
     <h1>Category For You!</h1>
     <div class="grid grid-cols-4">
       <div class="rounded-xl" *ngFor="let product of products">
-        <app-product (addToCart)="onAddToCart()" [product]="product" />
+        <app-product (addToCart)="onAddToCart($event)" [product]="product" />
       </div>
     </div>
   </div>

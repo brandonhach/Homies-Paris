@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../../types';
-
 import { ProductComponent } from '../../components/product/product.component';
-
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +13,10 @@ import { CommonModule } from '@angular/common';
 export class HomeComponent {
   products: Product[] = [];
 
-  constructor(private productsService: ProductsService) {}
+  constructor(
+    private productsService: ProductsService,
+    private cartService: CartService
+  ) {}
 
   /**
    * Initialized when component is called
@@ -27,5 +29,11 @@ export class HomeComponent {
       });
   }
 
-  onAddToCart(): void {}
+  onAddToCart(product: Product): void {
+    this.cartService.addToCart({
+      id: product.id,
+      product: product,
+      quantity: 1,
+    });
+  }
 }
