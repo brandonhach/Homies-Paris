@@ -12,9 +12,18 @@ export class CartService {
    * Kinda like useState or context in React where it holds the state of a property.
    * For this, cart is a Behavior Subject of type Cart with initial value of [] which is a Cart.items property
    */
-  cart = new BehaviorSubject<Cart>({ items: [] });
+  cart = new BehaviorSubject<Cart>(this.getCartFromStorage());
 
   constructor() {}
+
+  private getCartFromStorage(): Cart {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : { items: [] };
+  }
+
+  private updateStorage(cart: Cart): void {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
 
   /**
    * Add an item to cart.
@@ -34,6 +43,7 @@ export class CartService {
     }
 
     this.cart.next({ items });
-    console.log(this.cart.value);
+    this.updateStorage({ items });
+    // console.log(this.cart.value);
   }
 }
