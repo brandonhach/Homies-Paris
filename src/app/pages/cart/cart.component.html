@@ -1,8 +1,8 @@
 <div
   *ngIf="cart.items.length"
-  class="w-full flex flex-col items-center justify-center"
+  class="w-full flex flex-col items-center justify-center font-sanchez"
 >
-  <h1 class="font-bold">Your Cart</h1>
+  <h1 class="font-bold text-4xl py-4">Your Cart</h1>
   <!-- Cart List -->
   <div class="w-1/2">
     <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
@@ -38,13 +38,13 @@
             {{ item.product.title }}
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-            $ {{ item.product.price }}
+            {{ item.product.price | currency }}
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700">
             {{ item.quantity }}
           </td>
           <td class="whitespace-nowrap px-4 py-2 text-gray-700">
-            <button>close</button>
+            <button (click)="cancelCartItem(item)">cancel</button>
           </td>
         </tr>
       </tbody>
@@ -82,7 +82,10 @@
     </div>
   </div>
 </div>
-<div *ngIf="!cart.items.length">
-  <p>Your Cart is empty</p>
-  <a href="/home"><button mat-raised-button>Start Shopping</button></a>
+<div
+  *ngIf="!cart.items.length"
+  class="flex flex-col items-center justify-center font-sanchez"
+>
+  <p class="text-4xl font-bold">Your Cart is empty</p>
+  <a href="/"><button class="underline">Start Shopping</button></a>
 </div>

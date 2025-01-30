@@ -46,4 +46,10 @@ export class CartService {
     this.updateStorage({ items });
     // console.log(this.cart.value);
   }
+
+  cancelCartItem(item: CartItem): void {
+    const items = this.cart.value.items.filter((_item) => _item.id !== item.id);
+    this.cart.next({ items });
+    this.updateStorage({ items });
+  }
 }

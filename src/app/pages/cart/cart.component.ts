@@ -24,4 +24,8 @@ export class CartComponent {
       this.cart = _cart;
     });
   }
+
+  cancelCartItem(item: CartItem): void {
+    this.cartService.cancelCartItem(item);
+  }
 }
