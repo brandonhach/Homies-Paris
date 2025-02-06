@@ -1,31 +1,33 @@
+<div class="relative grid grid-cols-3 grid-rows-1 w-full h-[50rem] mb-12">
+  <div
+    class="absolute flex flex-col items-start justify-center pl-2 text-opacity-30 font-sanchez text-7xl text-white font-bold backdrop-blur-sm"
+  >
+    <h1>For the few.</h1>
+    <h1>Per pochi.</h1>
+    <h1>Pour les quelques.</h1>
+  </div>
+  <p
+    class="pl-2 absolute text-lg italic bottom-10 font-sanchez text-white backdrop-blur-sm"
+  >
+    Crafted for those who don't just seek luxury, but demand perfection in every
+    exquisite moment. <br />
+    Where uncompromising quality meets timeless elegance, your extraordinary
+    journey begins. <br />
+    Elevating expectations beyond imagination, we don't just create products—we
+    curate exceptional lifestyles.
+  </p>
+  <h1
+    class="absolute bottom-0 right-0 font-sanchez font-bold text-primary text-2xl backdrop-blur-sm"
+  >
+    Homiés
+  </h1>
+  <div
+    *ngFor="let item of homeBannerItem"
+    class="flex flex-col items-center justify-center rounded-xl"
+  >
+    <img [src]="item.imgUrl" alt="" class="size-full object-cover" />
+  </div>
+</div>
 <div>
-  <div class="grid grid-cols-2 grid-rows-1 w-full h-[60rem] gap-8 px-8 py-8">
-    <!-- Him -->
-    <a
-      class="relative flex flex-col items-center justify-center rounded-xl h-full scale-75"
-      href="/shop/men"
-    >
-      <h1
-        class="absolute font-sanchez text-5xl font-bold bottom-0 left-0 text-center tracking-widest text-base-200 backdrop-blur-0"
-      >
-        For Him.
-      </h1>
-      <img src="/home/formen.jpg" alt="" class="size-full object-cover" />
-    </a>
-    <!-- Her -->
-    <a
-      class="relative flex flex-col items-center justify-center rounded-xl scale-75"
-      href="/shop/women"
-    >
-      <h1
-        class="absolute font-sanchez text-5xl font-bold bottom-0 left-0 text-center tracking-widest text-base-200 backdrop-blur-0"
-      >
-        For Her.
-      </h1>
-      <img src="/home/forher.jpg" alt="" class="size-full object-cover" />
-    </a>
-  </div>
-  <div>
-    <app-shop></app-shop>
-  </div>
+  <app-shop></app-shop>
 </div>
