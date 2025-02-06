@@ -1,8 +1,7 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductComponent } from '../../components/product/product.component';
 import { Product } from '../../../types';
-import { CartService } from '../../services/cart.service';
 import { StoreService } from '../../services/store.service';
 import { Subscription } from 'rxjs';
 
@@ -15,14 +14,11 @@ export class ShopComponent {
   products: Product[] = [];
   sort = 'desc';
   count = '30';
-  category: string | undefined;
+  category: string | undefined = 'jewelery';
   productsSubscription: Subscription | undefined;
   view = 3;
 
-  constructor(
-    private cartService: CartService,
-    private storeService: StoreService
-  ) {}
+  constructor(private storeService: StoreService) {}
 
   ngOnInit(): void {
     this.getProducts();
@@ -40,14 +36,6 @@ export class ShopComponent {
       .subscribe((products: Product[]) => {
         this.products = products;
       });
-  }
-
-  onAddToCart(product: Product): void {
-    this.cartService.addToCart({
-      id: product.id,
-      product: product,
-      quantity: 1,
-    });
   }
 
   onSetCategory(category: string): void {
