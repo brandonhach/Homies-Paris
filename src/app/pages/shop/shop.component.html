@@ -3,9 +3,9 @@
     Category: {{ category ? category : "all" }}
   </h1>
   <!-- Filters -->
-  <div class="w-full flex flex-row">
+  <div class="w-full flex flex-row pb-2">
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn m-1">
+      <div tabindex="0" role="button" class="btn m-1 btn-outline">
         {{ category ? category : "Categories" }}
       </div>
       <ul
@@ -19,7 +19,7 @@
       </ul>
     </div>
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn m-1">View</div>
+      <div tabindex="0" role="button" class="btn m-1 btn-outline">View</div>
       <ul
         tabindex="0"
         class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
@@ -30,7 +30,7 @@
       </ul>
     </div>
     <div class="dropdown">
-      <div tabindex="0" role="button" class="btn m-1">
+      <div tabindex="0" role="button" class="btn m-1 btn-outline">
         ID {{ sort ? " by " + sort : sort }}
       </div>
       <ul
