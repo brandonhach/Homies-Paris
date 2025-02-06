@@ -22,4 +22,8 @@ export class StoreService {
       }?limit=${limit}&sort=${sort}`
     );
   }
+
+  getSingleProduct(id: string): Observable<Product> {
+    return this.httpClient.get<Product>(`${STORE_BASE_URL}/products/${id}`);
+  }
 }
