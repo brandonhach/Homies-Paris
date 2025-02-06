@@ -52,7 +52,7 @@
     }"
   >
     <div class="rounded-xl" *ngFor="let product of products">
-      <app-product (addToCart)="onAddToCart($event)" [product]="product" />
+      <app-product [product]="product" />
     </div>
   </div>
 </div>
