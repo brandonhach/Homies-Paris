@@ -14,9 +14,10 @@ import { Subscription } from 'rxjs';
 export class ShopComponent {
   products: Product[] = [];
   sort = 'desc';
-  count = '12';
+  count = '30';
   category: string | undefined;
   productsSubscription: Subscription | undefined;
+  view = 3;
 
   constructor(
     private cartService: CartService,
@@ -25,6 +26,12 @@ export class ShopComponent {
 
   ngOnInit(): void {
     this.getProducts();
+  }
+
+  ngOnDestroy(): void {
+    if (this.productsSubscription) {
+      this.productsSubscription.unsubscribe();
+    }
   }
 
   private getProducts(): void {
@@ -48,9 +55,13 @@ export class ShopComponent {
     this.getProducts();
   }
 
-  ngOnDestroy(): void {
-    if (this.productsSubscription) {
-      this.productsSubscription.unsubscribe();
-    }
+  onSetSort(sort: string): void {
+    this.sort = sort;
+    this.getProducts();
+  }
+
+  onSetView(view: number): void {
+    this.view = view;
+    this.getProducts();
   }
 }
