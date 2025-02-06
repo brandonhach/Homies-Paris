@@ -1,5 +1,19 @@
 <div class="w-full px-8">
-  <h1>Category For You!</h1>
+  <div class="w-full flex flex-row">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn m-1">Sort by</div>
+      <ul
+        tabindex="0"
+        class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+      >
+        <li><a (click)="onSetCategory('men\'s clothing')">Men</a></li>
+        <li><a (click)="onSetCategory('women\'s clothing')">Women</a></li>
+        <li><a (click)="onSetCategory('jewelery')">Jewelery</a></li>
+        <li><a (click)="onSetCategory('electronics')">Electronics</a></li>
+      </ul>
+    </div>
+  </div>
+  <h1>Category: {{ category ? category : "all" }}</h1>
   <div class="grid grid-cols-3 auto-rows-[500px] gap-4">
     <div class="rounded-xl" *ngFor="let product of products">
       <app-product (addToCart)="onAddToCart($event)" [product]="product" />
