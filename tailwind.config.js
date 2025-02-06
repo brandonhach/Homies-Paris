@@ -3,7 +3,11 @@ module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
     fontFamily: { sanchez: ["Sanchez", "Serif"] },
-    extend: {},
+    extend: {
+      colors: {
+        primary: "#FF710D",
+      },
+    },
   },
   daisyui: {
     themes: ["bumblebee"],
