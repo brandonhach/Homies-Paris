@@ -28,4 +28,8 @@ export class CartComponent {
   cancelCartItem(item: CartItem): void {
     this.cartService.cancelCartItem(item);
   }
+
+  onClearCart(): void {
+    this.cartService.clearCart();
+  }
 }

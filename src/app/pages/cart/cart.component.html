@@ -62,20 +62,19 @@
         </dl>
         <div class="flex flex-row items-end justify-end gap-2">
           <div class="flex justify-end">
-            <a
-              href="#"
+            <button
               class="block rounded bg-gray-700 px-5 py-3 text-sm text-gray-100 transition hover:bg-gray-600"
             >
-              Checkout
-            </a>
+              Proceed to Checkout
+            </button>
           </div>
           <div class="flex justify-end">
-            <a
-              href="#"
+            <button
+              (click)="onClearCart()"
               class="block rounded bg-red-700 px-5 py-3 text-sm text-red-100 transition hover:bg-red-600"
             >
               Clear All
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -84,7 +83,7 @@
 </div>
 <div
   *ngIf="!cart.items.length"
-  class="flex flex-col items-center justify-center font-sanchez"
+  class="flex flex-col items-center justify-start font-sanchez h-[64rem]"
 >
   <p class="text-4xl font-bold">Your Cart is empty</p>
   <a href="/"><button class="underline">Start Shopping</button></a>

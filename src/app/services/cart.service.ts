@@ -52,4 +52,8 @@ export class CartService {
     this.cart.next({ items });
     this.updateStorage({ items });
   }
+
+  clearCart(): void {
+    this.cart.next({ items: [] });
+  }
 }
