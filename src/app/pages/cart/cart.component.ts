@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { CartService } from '../../services/cart.service';
 import { HttpClient } from '@angular/common/http';
 import { loadStripe } from '@stripe/stripe-js';
+import { StripeService } from '../../services/stripe.service';
 
 @Component({
   selector: 'app-cart',
@@ -13,7 +14,11 @@ import { loadStripe } from '@stripe/stripe-js';
 export class CartComponent {
   cart: Cart = { items: [] };
 
-  constructor(private cartService: CartService, private http: HttpClient) {}
+  constructor(
+    private cartService: CartService,
+    private stripeService: StripeService,
+    private http: HttpClient
+  ) {}
 
   getTotal(item: CartItem[]): number {
     return item
@@ -41,9 +46,11 @@ export class CartComponent {
         items: this.cart.items,
       })
       .subscribe(async (res: any) => {
-        let stripe = await loadStripe('publishable key');
-        stripe?.redirectToCheckout({
-          sessionId: res.id,
+        this.stripeService.getSecret().subscribe(async (secret: string) => {
+          let stripe = await loadStripe(secret);
+          stripe?.redirectToCheckout({
+            sessionId: res.id,
+          });
         });
       });
   }
