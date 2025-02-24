@@ -56,4 +56,11 @@ export class CartService {
   clearCart(): void {
     this.cart.next({ items: [] });
   }
+
+  getTotal(): number {
+    const items = [...this.cart.value.items];
+    return items
+      .map((item) => item.product.price * item.quantity)
+      .reduce((prev, current) => prev + current, 0);
+  }
 }
