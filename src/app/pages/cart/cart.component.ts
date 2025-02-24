@@ -5,10 +5,12 @@ import { CartService } from '../../services/cart.service';
 import { HttpClient } from '@angular/common/http';
 import { loadStripe } from '@stripe/stripe-js';
 import { StripeService } from '../../services/stripe.service';
+import { CartTableComponent } from '../../components/cart/cart-table/cart-table.component';
+import { CartTotalComponent } from '../../components/cart/cart-total/cart-total.component';
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule],
+  imports: [CommonModule, CartTableComponent, CartTotalComponent],
   templateUrl: './cart.component.html',
 })
 export class CartComponent {
@@ -19,12 +21,6 @@ export class CartComponent {
     private stripeService: StripeService,
     private http: HttpClient
   ) {}
-
-  getTotal(item: CartItem[]): number {
-    return item
-      .map((item) => item.product.price * item.quantity)
-      .reduce((prev, current) => prev + current, 0);
-  }
 
   ngOnInit(): void {
     this.cartService.cart.subscribe((_cart: Cart) => {
